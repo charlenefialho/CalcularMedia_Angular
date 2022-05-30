@@ -1,0 +1,108 @@
+<div class="row">
+  <div class="col d-flex" style="margin-top: 100px">
+    <div
+      class="card text-white "
+      style="background-color:black; height: 533px; width: 300px">
+    
+      <img 
+      [src]="foto"
+      class="rounded-sm"
+      style="height: 120px; width: 120px; margin-left: 90px; margin-top: 20px"
+      alt="foto aluno"
+      />
+      <div class="card-body" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+        <h6 class="card-title">{{ RMA_aluno }}</h6>
+        <p class="card-text"><b>Nome: </b>{{ nome }}</p>
+        <p class="card-text" style="margin-top: 15px"><b>Data de nascimento:</b> {{data_nascimento| date:'dd/MM/yyyy'}}</p>
+        <h6 class="card-text" style="margin-top: 15px">Formação:</h6>
+
+        <select class="form-control form-control-sm text-white bg-dark">
+          <option>Ensino Médio</option>
+          <option>Técnico em Desenvolvimento de sistemas</option>
+        </select>
+        <p class="card-text" style="margin-top: 15px">
+          <b>Sit. Matricula: </b>Cursando
+        </p>
+        <p class="card-text" style="margin-top: 15px"><b>Turma:</b> A</p>
+        <p class="card-text" style="margin-top: 15px">
+          <b>Módulo/Série:</b> 3ªSérie
+        </p>
+      </div>
+    </div>
+    <div class="col">
+      
+      <table 
+        class="table table-bordered table-dark" 
+        style="height: 400px;font-family: Verdana, Geneva, Tahoma, sans-serif;">
+        <thead>
+          <tr>
+            <th scope="col">Matérias</th>
+            <th scope="col">Menção1</th>
+            <th scope="col">Menção2</th>
+            <th scope="col">Menção3</th>
+            <th scope="col">Menção4</th>
+            <th scope="col">Média</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="font-size: 1.5em; height: 160px">
+            <th scope="row">Materia1</th>
+            <td>{{ nota1 }}</td>
+            <td>{{ nota2 }}</td>
+            <td>{{ nota3 }}</td>
+            <td>{{ nota4 }}</td>
+            <td>{{ media | number: '1.0-1'}}</td>
+            <td>
+              <span
+                *ngIf="media >= 7; else elseBlock"
+                class="badge badge-success"
+                ><h6>Aprovado</h6></span>
+              <ng-template #elseBlock>
+                <span class="badge badge-danger">Reprovado</span>
+              </ng-template>
+            </td>
+          </tr>
+
+          <tr style="height: 160px; font-size: 1.5em">
+            <th scope="row">Materia2</th>
+            <td>{{ mat2_nota1 }}</td>
+            <td>{{ mat2_nota2 }}</td>
+            <td>{{ mat2_nota3 }}</td>
+            <td>{{ mat2_noat4 }}</td>
+            <td>{{ media2 | number: '1.0-1'}}</td>
+            <td>
+              <span
+                *ngIf="media2 >= 7; else elseBlock2"
+                class="badge badge-success"
+                >Aprovado</span>
+              <ng-template #elseBlock2>
+                <span class="badge badge-danger"><h6>Reprovado</h6></span>
+              </ng-template>
+            </td>
+          </tr>
+
+          <tr style="font-size: 1.5em; height: 160px">
+            <th scope="row">Materia3</th>
+            <td>{{ mat3_nota1 }}</td>
+            <td>{{ mat3_nota2 }}</td>
+            <td>{{ mat3_nota3 }}</td>
+            <td>{{ mat3_noat4 }}</td>
+            <td>{{ media3 | number: '1.0-1'}}</td>
+            <td>
+              <span
+                *ngIf="media3 >= 7; else elseBlock2"
+                class="badge badge-success"
+                >Aprovado</span>
+              <ng-template #elseBlock2>
+                <span class="badge badge-danger"><h6>Reprovado</h6></span>
+              </ng-template>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div><!-- fim da row-->
+
